@@ -29,14 +29,20 @@
 
 int main(void)
 {
-    DDRD |= (1 << PIND7);
+    DDRD |= 0xFF;
 
     while (1)
     {
-    PORTD |= (1 << PIND7);
-    _delay_ms(1000);
-    PORTD &= ~(1 << PIND7);
-    _delay_ms(1000);
+    PORTD |= (1 << PIND1);
+    PORTD |= (1 << PIND2);
+    PORTD |= (1 << PIND3);
+    PORTD |= (1 << PIND4);
+
+
+    PORTD &= ~(1 << PIND1);
+    PORTD &= ~(1 << PIND2);
+    PORTD &= ~(1 << PIND3);
+    PORTD &= ~(1 << PIND4);
         
     }
 }
