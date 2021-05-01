@@ -11,6 +11,12 @@ restort, I rebooted the computer and finally Arch dedicated a **port** to it.
 tail -f /dev/ttyUSB0
 ```
 
+## How to view data from DSO138mini oscilloscope
+Run my Python script
+```sh
+./collect_and_plot.py
+```
+
 ## How to setup permissions in Linux (for Arduino)
 * Add user to group `uucp`
 
