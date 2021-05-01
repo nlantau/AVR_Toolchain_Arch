@@ -35,7 +35,7 @@ int main(void)
     {
     PORTD |= (1 << PIND1);
     PORTD |= (1 << PIND2);
-    PORTD |= (1 << PIND3);
+    //PORTD |= (1 << PIND3);
     PORTD |= (1 << PIND4);
 
 
