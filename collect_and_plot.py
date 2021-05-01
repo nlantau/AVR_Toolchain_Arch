@@ -7,9 +7,12 @@ import serial
 import re
 import json
 import matplotlib.pyplot as plt
-#from rich.progress import track
+
 
 JSONFILE = "DSO138_data.json"
+PORT = r'/dev/ttyUSB0'
+BAUD = 115200
+
 
 def main():
     data_collected = collect_data(create_dict())
@@ -24,11 +27,8 @@ def display_info(data: dict):
 
 
 def plot(data: dict):
-    # numeric = re.compile(r"[0-9]+")
-    # VSen = float(re.search(numeric, data["info"]["VSen"]).group(0))
     numb = [int(x) for x in data["values"]]
     voltage = [float(v[1]) for _,v in data["values"].items()]
-    # voltage = [float(v[1]) * VSen/2 for _,v in data["values"].items()]
 
     display_info(data)
     print(f'> Plotting data...')
@@ -51,7 +51,7 @@ def collect_data(data: dict) -> dict:
     last_line = re.compile(r"^01023")
     first = True
 
-    with serial.Serial(r'/dev/ttyUSB0', 115200, timeout=3) as ser:
+    with serial.Serial(PORT, BAUD, timeout=3) as ser:
         print(f'> Start transmission now!')
         while True:
             all_data = ser.readline().decode('utf-8').strip()
