@@ -24,7 +24,7 @@ def display_info(data: dict):
 
 
 def plot(data: dict):
-    numeric = re.compile(r"[0-9]+")
+    # numeric = re.compile(r"[0-9]+")
     # VSen = float(re.search(numeric, data["info"]["VSen"]).group(0))
     numb = [int(x) for x in data["values"]]
     voltage = [float(v[1]) for _,v in data["values"].items()]
